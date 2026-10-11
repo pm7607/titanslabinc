@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import SectionHeading from "@/components/ui/SectionHeading";
 import BlogCard from "@/components/ui/BlogCard";
 import CTASection from "@/components/sections/CTASection";
 import { BLOG_POSTS } from "@/data/blogPosts";
@@ -20,8 +19,6 @@ export default function BlogPage() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredPost = BLOG_POSTS.find(p => p.featured) || BLOG_POSTS[0];
-
   return (
     <div className="py-12 space-y-16 bg-white">
       {/* Header Banner */}
@@ -37,29 +34,6 @@ export default function BlogPage() {
           Technical articles, software architecture breakdowns, and industry guidance written by the Titanslab engineering team.
         </p>
       </section>
-
-      {/* Featured Post Banner */}
-      {featuredPost && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 text-white border border-purple-500/30 glass-panel shadow-xl">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/10 text-purple-200 border border-white/20 uppercase tracking-wider">
-              Featured Article
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-4 mb-3">
-              {featuredPost.title}
-            </h2>
-            <p className="text-sm text-slate-200 max-w-3xl leading-relaxed mb-6 font-normal">
-              {featuredPost.excerpt}
-            </p>
-            <div className="flex items-center justify-between text-xs text-slate-300 pt-4 border-t border-white/10 font-medium">
-              <span>{featuredPost.author} • {featuredPost.date}</span>
-              <a href={`/blog/${featuredPost.slug}`} className="text-purple-300 font-bold hover:text-white transition-colors">
-                Read Full Article &rarr;
-              </a>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Search Bar & Filters */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">

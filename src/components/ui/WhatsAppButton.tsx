@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { X, Send, Sparkles } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
 export default function WhatsAppButton() {

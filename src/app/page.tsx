@@ -16,9 +16,9 @@ import { MAIN_SERVICES_MEGA, SPECIALIZED_SERVICES } from "@/data/services";
 import { WHY_US_REASONS } from "@/data/company";
 import { PORTFOLIO_ITEMS } from "@/data/portfolio";
 
-import { Target, Cpu, Layers, ShieldCheck, MessageSquareText, Award, ArrowRight, CheckCircle2, QrCode } from "lucide-react";
+import { Target, Cpu, Layers, ShieldCheck, MessageSquareText, Award, ArrowRight, CheckCircle2, QrCode, LucideIcon } from "lucide-react";
 
-const whyUsIconMap: Record<string, any> = {
+const whyUsIconMap: Record<string, LucideIcon> = {
   Target,
   Cpu,
   Layers,
@@ -250,7 +250,7 @@ export default function HomePage() {
                   Featured Work
                 </div>
                 <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                  Work We're Proud Of
+                  Work We&apos;re Proud Of
                 </h2>
               </div>
 

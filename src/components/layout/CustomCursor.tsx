@@ -18,10 +18,10 @@ export default function CustomCursor() {
       return;
     }
 
-    setIsVisible(true);
     document.body.classList.add("custom-cursor-enabled");
 
     const onMouseMove = (e: MouseEvent) => {
+      setIsVisible(true);
       setPosition({ x: e.clientX, y: e.clientY });
 
       // Check hovered element

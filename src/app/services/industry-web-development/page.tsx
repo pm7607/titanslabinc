@@ -1,7 +1,6 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Code2, CheckCircle2 } from "lucide-react";
+import { Code2 } from "lucide-react";
 
 export const metadata = {
   title: "Industry Web Development | Titanslab Inc.",

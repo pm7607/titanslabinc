@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import { PRODUCTS_LIST } from "@/data/products";
-import { Sparkles, Bell, CheckCircle2, QrCode, Cpu, Layers, Lock, ShieldCheck, ArrowRight } from "lucide-react";
+import { Sparkles, Bell, CheckCircle2, QrCode, Cpu, Layers, Lock, LucideIcon } from "lucide-react";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   QrCode,
   Cpu,
   Layers,
@@ -45,7 +46,7 @@ export default function ProductsPage() {
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Discover Titanslab's in-house software products designed to simplify visitor verification, workflow automation, and enterprise resource planning.
+            Discover Titanslab&apos;s in-house software products designed to simplify visitor verification, workflow automation, and enterprise resource planning.
           </p>
         </AnimatedSection>
       </section>
@@ -89,32 +90,35 @@ export default function ProductsPage() {
                     ))}
                   </div>
 
-                  <div className="pt-4 flex items-center gap-4">
-                    <Button href="/contact" size="md" className="bg-white text-purple-900 hover:bg-slate-100 border-none">
-                      Request Demo / Inquiry
+                  <div className="pt-4 flex flex-wrap items-center gap-3">
+                    <Button href="/products/security-qr-entry" size="md" className="bg-white text-purple-900 hover:bg-slate-100 border-none font-bold">
+                      Try Interactive Live Demo →
                     </Button>
-                    <span className="text-xs text-slate-400 italic">
-                      More product details & portal updates coming soon!
-                    </span>
+                    <Button href="/contact?service=Security+QR+Entry+System" size="md" variant="outline" className="text-white border-white/40 hover:bg-white/10">
+                      Request Consultation
+                    </Button>
                   </div>
                 </div>
 
                 {/* Graphic Visual Representation of QR Entry */}
                 <div className="lg:col-span-5">
-                  <div className="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-center space-y-4">
-                    <div className="w-20 h-20 rounded-2xl bg-white text-purple-900 mx-auto flex items-center justify-center shadow-xl">
+                  <Link
+                    href="/products/security-qr-entry"
+                    className="block p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-center space-y-4 hover:border-purple-400 hover:bg-white/15 transition-all group"
+                  >
+                    <div className="w-20 h-20 rounded-2xl bg-white text-purple-900 mx-auto flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
                       <QrCode className="w-12 h-12" />
                     </div>
                     <div className="space-y-1">
-                      <div className="text-sm font-bold text-white">Instant QR Access Verification</div>
+                      <div className="text-sm font-bold text-white group-hover:text-purple-200 transition-colors">Instant QR Access Verification</div>
                       <div className="text-xs text-purple-200">Duplicate Prevention • Real-Time Logs</div>
                     </div>
                     <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/30 text-[11px] text-slate-300 text-left font-mono">
                       <div>▶ SCANNER: GATE_01_ACTIVE</div>
                       <div>▶ STATUS: ACCESS_GRANTED</div>
-                      <div>▶ LATENCY: 120ms</div>
+                      <div>▶ LATENCY: 42ms (Click to Test Live)</div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
 
               </div>
@@ -195,7 +199,7 @@ export default function ProductsPage() {
             {submitted ? (
               <div className="p-3 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold flex items-center justify-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-purple-600" />
-                <span>Thank you! We'll notify you at launch.</span>
+                <span>Thank you! We&apos;ll notify you at launch.</span>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">

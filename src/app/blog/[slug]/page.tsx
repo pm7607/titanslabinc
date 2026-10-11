@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BLOG_POSTS } from "@/data/blogPosts";
@@ -62,6 +63,19 @@ export default async function SingleBlogPostPage({ params }: BlogPostPageProps) 
             Written by <span className="text-slate-900">{post.author}</span>
           </div>
         </div>
+
+        {/* Featured Image */}
+        {post.image && (
+          <div className="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {/* Article Body */}
         <div className="prose max-w-none pt-8 border-t border-slate-200 text-sm text-slate-700 leading-relaxed space-y-4 font-normal">

@@ -1,7 +1,6 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Palette, CheckCircle2 } from "lucide-react";
+import { Palette } from "lucide-react";
 
 export const metadata = {
   title: "UI/UX & Domain Hosting | Titanslab Inc.",

@@ -1,4 +1,3 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { MILESTONES } from "@/data/company";

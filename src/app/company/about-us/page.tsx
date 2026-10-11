@@ -7,7 +7,7 @@ import CTASection from "@/components/sections/CTASection";
 import TrustStats from "@/components/sections/TrustStats";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { ABOUT_FAQS } from "@/data/company";
-import { Target, Cpu, ShieldCheck, ChevronDown, CheckCircle2, Building2, Code2, Server } from "lucide-react";
+import { Target, Cpu, ShieldCheck, ChevronDown, Building2, Code2, Server } from "lucide-react";
 
 export default function AboutUsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);

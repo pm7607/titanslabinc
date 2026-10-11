@@ -22,7 +22,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Innovative seed company focused on quality seeds, crop varieties, and sustainable agriculture.",
     longDesc: "Innovative seed company focused on quality seeds, crop varieties, and sustainable agriculture.",
     technologies: [],
-    image: "",
+    image: "/images/fycusseeds.png",
     featured: true,
     metrics: "Agriculture & Seeds"
   },
@@ -35,7 +35,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Mobile and wireless retail business providing phones, accessories, and related telecom services.",
     longDesc: "Mobile and wireless retail business providing phones, accessories, and related telecom services.",
     technologies: [],
-    image: "",
+    image: "/images/belleville.png",
     featured: true,
     metrics: "Telecom & Mobile"
   },
@@ -48,7 +48,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Mobile device repair and accessories business specializing in professional smartphone and tablet repairs.",
     longDesc: "Mobile device repair and accessories business specializing in professional smartphone and tablet repairs.",
     technologies: [],
-    image: "",
+    image: "/images/phoneji.png",
     featured: true,
     metrics: "Repair & Devices"
   },
@@ -61,7 +61,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Indian fast-food brand serving authentic street food, beverages, and traditional Gujarati-inspired favorites in Canada.",
     longDesc: "Indian fast-food brand serving authentic street food, beverages, and traditional Gujarati-inspired favorites in Canada.",
     technologies: [],
-    image: "",
+    image: "/images/kutchiking.png",
     featured: true,
     metrics: "Food Retail Chain"
   },
@@ -74,7 +74,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Global commodity trading and sourcing solutions.",
     longDesc: "Global commodity trading and sourcing solutions built for MAAS Impex Company Limited.",
     technologies: [],
-    image: "",
+    image: "/images/maas.png",
     featured: true,
     metrics: "Commodity & Trading"
   },
@@ -87,7 +87,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Mobile technology retailer offering new and pre-owned devices, sales, trade-ins, and professional repair services.",
     longDesc: "Mobile technology retailer offering new and pre-owned devices, sales, trade-ins, and professional repair services.",
     technologies: [],
-    image: "",
+    image: "/images/peel.png",
     featured: false,
     metrics: "Wireless Retail"
   },
@@ -100,7 +100,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Mobile technology business specializing in quality pre-owned devices and professional phone, laptop, and tablet repairs.",
     longDesc: "Mobile technology business specializing in quality pre-owned devices and professional phone, laptop, and tablet repairs.",
     technologies: [],
-    image: "",
+    image: "/images/durham.png",
     featured: false,
     metrics: "Mobile & Repairs"
   },
@@ -113,7 +113,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "International trading company focused on sourcing, supplying, and exporting a diverse range of commodities.",
     longDesc: "International trading company focused on sourcing, supplying, and exporting a diverse range of commodities.",
     technologies: [],
-    image: "",
+    image: "/images/mahiratradex.png",
     featured: true,
     metrics: "Import & Export"
   },
@@ -126,7 +126,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Export company connecting quality agricultural and food products with international markets.",
     longDesc: "Export company connecting quality agricultural and food products with international markets.",
     technologies: [],
-    image: "",
+    image: "/images/karmkrupa.png",
     featured: false,
     metrics: "Agri Export"
   },
@@ -139,7 +139,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Merchant export company providing international sourcing, trading, and export solutions.",
     longDesc: "Merchant export company providing international sourcing, trading, and export solutions.",
     technologies: [],
-    image: "",
+    image: "/images/shivbhinexim.png",
     featured: false,
     metrics: "Merchant Exim"
   },
@@ -152,7 +152,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Real estate development company creating premium residential projects with a focus on quality, innovation, and modern living.",
     longDesc: "Real estate development company creating premium residential projects with a focus on quality, innovation, and modern living.",
     technologies: [],
-    image: "",
+    image: "/images/shivaydeveloper.png",
     featured: false,
     metrics: "Real Estate"
   },
@@ -165,7 +165,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Premium wedding and event venue in Surat offering spaces for weddings, celebrations, corporate events, and parties.",
     longDesc: "Premium wedding and event venue in Surat offering spaces for weddings, celebrations, corporate events, and parties.",
     technologies: [],
-    image: "",
+    image: "/images/applefarm.png",
     featured: false,
     metrics: "Event Venue"
   },
@@ -178,7 +178,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Industrial manufacturing company specializing in precision iron castings and engineering solutions for global markets.",
     longDesc: "Industrial manufacturing company specializing in precision iron castings and engineering solutions for global markets.",
     technologies: [],
-    image: "",
+    image: "/images/candidferrocast.png",
     featured: false,
     metrics: "Industrial Manufacturing"
   },
@@ -191,7 +191,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Technology company focused on enterprise software solutions, digital platforms, and modern application development.",
     longDesc: "Technology company focused on enterprise software solutions, digital platforms, and modern application development.",
     technologies: [],
-    image: "",
+    image: "/images/macromic.png",
     featured: false,
     metrics: "Enterprise Software"
   },
@@ -204,7 +204,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Educational institution providing school-level education with a focus on academic development and student growth.",
     longDesc: "Educational institution providing school-level education with a focus on academic development and student growth.",
     technologies: [],
-    image: "",
+    image: "/images/shiningstarschool.png",
     featured: false,
     metrics: "Education & Growth"
   },
@@ -217,7 +217,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     shortDesc: "Dermatology, skin, hair, laser, and aesthetic treatment clinic led by Dr. Dipal Zala.",
     longDesc: "Dermatology, skin, hair, laser, and aesthetic treatment clinic led by Dr. Dipal Zala.",
     technologies: [],
-    image: "",
+    image: "/images/samved.png",
     featured: true,
     metrics: "Dermatology Clinic"
   }

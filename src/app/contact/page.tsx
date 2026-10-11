@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { COMPANY_INFO } from "@/data/company";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 
 export default function ContactPage() {
@@ -18,11 +17,49 @@ export default function ContactPage() {
     budget: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to deliver inquiry. Please try again or reach out on WhatsApp.");
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        service: "Website Development",
+        budget: "",
+        message: ""
+      });
+    } catch (err: unknown) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred while sending your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -32,7 +69,7 @@ export default function ContactPage() {
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
-            Let's Talk
+            Let&apos;s Talk
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
             Start Your Digital Project With <span className="text-gradient-purple">Titanslab Inc.</span>
@@ -55,25 +92,57 @@ export default function ContactPage() {
               </h3>
 
               {submitted ? (
-                <div className="p-8 rounded-2xl bg-purple-50 border border-purple-200 text-center space-y-4">
-                  <CheckCircle2 className="w-12 h-12 text-purple-600 mx-auto" />
-                  <h4 className="text-xl font-bold text-slate-900">Inquiry Received!</h4>
-                  <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed font-normal">
-                    Thank you for reaching out to Titanslab Inc. Our engineering leadership will review your message and reach out shortly.
-                  </p>
+                <div className="p-8 sm:p-10 rounded-2xl bg-purple-50 border border-purple-200 text-center space-y-5">
+                  <div className="w-16 h-16 rounded-full bg-purple-100 border border-purple-300 text-purple-600 flex items-center justify-center mx-auto shadow-sm">
+                    <CheckCircle2 className="w-9 h-9" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl sm:text-2xl font-bold text-slate-900">Inquiry Delivered!</h4>
+                    <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed font-normal">
+                      Thank you for reaching out to Titanslab Inc. Your message has been sent directly to our engineering desk at{" "}
+                      <strong className="text-purple-700 font-semibold">{COMPANY_INFO.email}</strong>. We will review your project requirements and respond promptly.
+                    </p>
+                  </div>
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition-all shadow-md shadow-purple-600/20 active:scale-95 cursor-pointer"
+                    >
+                      Send Another Inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2.5">
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-rose-600" />
+                      <div className="flex-1 space-y-1">
+                        <span className="font-bold block">Delivery Issue</span>
+                        <span className="font-normal block leading-relaxed">{errorMessage}</span>
+                        <div className="pt-1 text-[11px] text-rose-600 font-medium">
+                          You can also email us directly at{" "}
+                          <a href={`mailto:${COMPANY_INFO.email}`} className="underline font-bold hover:text-rose-800">
+                            {COMPANY_INFO.email}
+                          </a>{" "}
+                          or connect on WhatsApp.
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs text-slate-700 font-semibold block mb-1.5">Full Name *</label>
                       <input
                         type="text"
                         required
+                        disabled={isSubmitting}
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                       />
                     </div>
 
@@ -81,10 +150,11 @@ export default function ContactPage() {
                       <label className="text-xs text-slate-700 font-semibold block mb-1.5">Company Name</label>
                       <input
                         type="text"
+                        disabled={isSubmitting}
                         placeholder="Company / Organization"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -95,10 +165,11 @@ export default function ContactPage() {
                       <input
                         type="email"
                         required
+                        disabled={isSubmitting}
                         placeholder="john@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                       />
                     </div>
 
@@ -107,10 +178,11 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         required
+                        disabled={isSubmitting}
                         placeholder="+91 97121 17087"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -119,9 +191,10 @@ export default function ContactPage() {
                     <div>
                       <label className="text-xs text-slate-700 font-semibold block mb-1.5">Service / Product Interested In *</label>
                       <select
+                        disabled={isSubmitting}
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors font-medium"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors font-medium disabled:opacity-60"
                       >
                         <option value="Website Development">Website Development</option>
                         <option value="E-commerce Development">E-commerce Development</option>
@@ -139,10 +212,11 @@ export default function ContactPage() {
                       <label className="text-xs text-slate-700 font-semibold block mb-1.5">Project Budget (Optional)</label>
                       <input
                         type="text"
+                        disabled={isSubmitting}
                         placeholder="e.g. $2k - $10k"
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -151,16 +225,30 @@ export default function ContactPage() {
                     <label className="text-xs text-slate-700 font-semibold block mb-1.5">Project Details / Message *</label>
                     <textarea
                       required
+                      disabled={isSubmitting}
                       rows={4}
                       placeholder="Tell us about your project scope, product inquiry, or timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors disabled:opacity-60"
                     />
                   </div>
 
-                  <Button type="submit" size="lg" showArrow className="w-full">
-                    Send Inquiry
+                  <Button
+                    type="submit"
+                    size="lg"
+                    showArrow={!isSubmitting}
+                    disabled={isSubmitting}
+                    className="w-full"
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending Inquiry...</span>
+                      </span>
+                    ) : (
+                      "Send Inquiry"
+                    )}
                   </Button>
                 </form>
               )}

@@ -1,4 +1,3 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import CTASection from "@/components/sections/CTASection";
 import { CASE_STUDIES } from "@/data/caseStudies";

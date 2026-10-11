@@ -2,7 +2,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
 import CTASection from "@/components/sections/CTASection";
 import { MAIN_SERVICES_MEGA, SPECIALIZED_SERVICES } from "@/data/services";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export const metadata = {
   title: "Services & Capabilities | Titanslab Inc.",

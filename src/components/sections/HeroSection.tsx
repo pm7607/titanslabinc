@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Code2, Server, Cpu, ShieldCheck } from "lucide-react";
+import { Sparkles, Code2, Server, Cpu, ShieldCheck } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
@@ -57,7 +56,7 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
             >
               <Button href="/contact" size="lg" showArrow className="w-full sm:w-auto">
-                Let's Talk
+                Let&apos;s Talk
               </Button>
               <Button href="/portfolio" variant="secondary" size="lg" className="w-full sm:w-auto">
                 Explore Our Work

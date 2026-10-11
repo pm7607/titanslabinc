@@ -1,7 +1,6 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Sparkles, Code2, Users, Rocket, Heart, Laptop } from "lucide-react";
+import { Code2, Rocket, Heart } from "lucide-react";
 
 export const metadata = {
   title: "Life @ Titanslab | Titanslab Inc.",

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { TEAM_MEMBERS } from "@/data/company";

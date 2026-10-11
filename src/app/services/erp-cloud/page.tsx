@@ -1,7 +1,6 @@
-import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { Server, CheckCircle2 } from "lucide-react";
+import { Server } from "lucide-react";
 
 export const metadata = {
   title: "ERP Solutions & Cloud Services | Titanslab Inc.",

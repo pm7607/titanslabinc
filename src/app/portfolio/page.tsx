@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import SectionHeading from "@/components/ui/SectionHeading";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import PortfolioCard from "@/components/ui/PortfolioCard";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -31,6 +32,16 @@ export default function OurWorkPage() {
           <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
             Explore our work portfolio featuring live web applications, e-commerce storefronts, business platforms, and custom software delivered for clients globally.
           </p>
+
+          <div className="mt-5 flex items-center justify-center">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 hover:bg-purple-100 hover:border-purple-300 text-xs font-bold transition-all shadow-xs hover:-translate-y-0.5"
+            >
+              <span>View Technical Case Studies & Client ROI</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </AnimatedSection>
       </section>
 

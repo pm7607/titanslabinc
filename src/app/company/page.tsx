@@ -3,7 +3,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { COMPANY_NAV_ITEMS } from "@/components/layout/MegaMenuCompany";
-import { COMPANY_INFO, MILESTONES } from "@/data/company";
+import { MILESTONES } from "@/data/company";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {

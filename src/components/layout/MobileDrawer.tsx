@@ -132,6 +132,14 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             </Link>
 
             <Link
+              href="/case-studies"
+              onClick={onClose}
+              className="block px-3 py-2.5 rounded-xl hover:bg-purple-50 text-slate-700 hover:text-purple-600 transition-colors"
+            >
+              Case Studies
+            </Link>
+
+            <Link
               href="/blog"
               onClick={onClose}
               className="block px-3 py-2.5 rounded-xl hover:bg-purple-50 text-slate-700 hover:text-purple-600 transition-colors"
@@ -148,7 +156,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             onClick={onClose}
             className="w-full block text-center py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow-md shadow-purple-600/20 transition-all"
           >
-            Let's Talk
+            Let&apos;s Talk
           </Link>
 
           <div className="text-xs text-slate-500 space-y-1.5 text-center">

@@ -25,7 +25,7 @@ export default function CookiePolicyPage() {
         <AnimatedSection delay={0.1}>
           <div className="prose prose-slate max-w-none text-sm text-slate-700 leading-relaxed space-y-6 font-normal pt-6 border-t border-slate-200">
             <p>
-              This Cookie Policy explains how Titanslab Inc. ("we", "us", or "our") uses cookies and similar technologies to recognize you when you visit our website at <strong>titanslab.in</strong>. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+              This Cookie Policy explains how Titanslab Inc. (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) uses cookies and similar technologies to recognize you when you visit our website at <strong>titanslab.in</strong>. It explains what these technologies are and why we use them, as well as your rights to control our use of them.
             </p>
 
             <h2 className="text-xl font-bold text-slate-900 pt-4">1. What Are Cookies?</h2>

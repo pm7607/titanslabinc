@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 import { BlogPost } from "@/data/blogPosts";
@@ -9,21 +10,36 @@ interface BlogCardProps {
 export default function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="group rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-900/10 flex flex-col justify-between shadow-sm">
-      {/* Header Visual Gradient */}
-      <div className="relative h-40 w-full bg-gradient-to-r from-purple-100 via-slate-50 to-purple-50 p-5 flex flex-col justify-between border-b border-slate-200">
-        <div className="flex items-center justify-between z-10">
-          <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-white text-purple-700 border border-slate-200 shadow-xs">
+      {/* Header Visual Image */}
+      <div className="relative h-48 w-full bg-slate-900 overflow-hidden p-5 flex flex-col justify-between border-b border-slate-200">
+        {post.image ? (
+          <>
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent pointer-events-none" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-slate-50 to-purple-50" />
+        )}
+
+        <div className="flex items-center justify-between z-10 relative">
+          <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-white/95 text-purple-700 border border-slate-200 shadow-xs">
             {post.category}
           </span>
-          <span className="flex items-center gap-1 text-[10px] text-slate-600 font-medium">
-            <Clock className="w-3 h-3 text-purple-600" />
+          <span className="flex items-center gap-1 text-[10px] text-white/90 font-medium bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs">
+            <Clock className="w-3 h-3 text-purple-400" />
             {post.readTime}
           </span>
         </div>
 
-        <div className="z-10">
-          <span className="text-[11px] text-slate-600 font-mono flex items-center gap-1 font-semibold">
-            <Calendar className="w-3 h-3 text-purple-600" />
+        <div className="z-10 relative">
+          <span className="text-[11px] text-white/90 font-mono flex items-center gap-1 font-semibold bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs w-fit">
+            <Calendar className="w-3 h-3 text-purple-400" />
             {post.date}
           </span>
         </div>

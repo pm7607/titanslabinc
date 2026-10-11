@@ -5,7 +5,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import Preloader from "@/components/layout/Preloader";
 
 export const metadata: Metadata = {
   title: "Titanslab Inc. | Technology & Digital Solutions Company",
@@ -47,11 +46,20 @@ export const metadata: Metadata = {
     siteName: "Titanslab Inc.",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Titanslab Inc. | Enterprise Software Engineering & Digital Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Titanslab Inc. | Technology & Digital Solutions Company",
     description: "Building modern websites, custom software, cloud solutions and automation.",
+    images: ["/images/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -67,7 +75,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-white text-slate-900 min-h-screen flex flex-col antialiased selection:bg-purple-600 selection:text-white">
-        <Preloader />
         <CustomCursor />
         <TopBar />
         <Header />

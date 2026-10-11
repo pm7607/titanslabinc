@@ -24,7 +24,7 @@ export default function TermsPage() {
         <AnimatedSection delay={0.1}>
           <div className="prose prose-slate max-w-none text-sm text-slate-700 leading-relaxed space-y-6 font-normal pt-6 border-t border-slate-200">
             <p>
-              Welcome to Titanslab Inc. These terms and conditions outline the rules and regulations for the use of Titanslab Inc.'s Website and Technology Services.
+              Welcome to Titanslab Inc. These terms and conditions outline the rules and regulations for the use of Titanslab Inc.&apos;s Website and Technology Services.
             </p>
 
             <h2 className="text-xl font-bold text-slate-900 pt-4">1. Acceptance of Terms</h2>

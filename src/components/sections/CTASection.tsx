@@ -18,16 +18,16 @@ export default function CTASection() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Have an Idea? <span className="text-purple-300">Let's Build It.</span>
+              Have an Idea? <span className="text-purple-300">Let&apos;s Build It.</span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto font-normal">
-              Tell us what you're building, what you're trying to improve, or where your business needs help. We'll help you find the right digital solution.
+              Tell us what you&apos;re building, what you&apos;re trying to improve, or where your business needs help. We&apos;ll help you find the right digital solution.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/contact" size="lg" showArrow className="w-full sm:w-auto bg-white text-purple-900 hover:bg-slate-100 border-none shadow-lg">
-                Let's Talk
+                Let&apos;s Talk
               </Button>
               <Button href="/portfolio" variant="outline" size="lg" className="w-full sm:w-auto text-white border-white/40 hover:bg-white/10 hover:border-white">
                 Explore Our Portfolio

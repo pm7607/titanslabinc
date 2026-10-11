@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, AlertCircle, Lightbulb } from "lucide-react";
 import { CaseStudy } from "@/data/caseStudies";
@@ -8,7 +9,10 @@ interface CaseStudyCardProps {
 
 export default function CaseStudyCard({ study }: CaseStudyCardProps) {
   return (
-    <div className="group rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel">
+    <div
+      id={study.slug}
+      className="group rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel"
+    >
       {/* Top Meta Bar */}
       <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-200 text-xs">
         <div className="flex items-center gap-2">
@@ -28,9 +32,28 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-6">
-        {study.title}
+      <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-4">
+        <Link href={`/case-studies/${study.slug}`}>
+          {study.title}
+        </Link>
       </h3>
+
+      {/* Hero Showcase Image */}
+      {study.heroImage && (
+        <Link
+          href={`/case-studies/${study.slug}`}
+          className="block relative w-full h-52 sm:h-72 rounded-xl overflow-hidden border border-slate-200 mb-6 shadow-xs bg-slate-950 group/img"
+        >
+          <Image
+            src={study.heroImage}
+            alt={study.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+            className="object-cover group-hover/img:scale-[1.02] transition-transform duration-500 opacity-95"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+        </Link>
+      )}
 
       {/* Challenge vs Solution Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -70,7 +93,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         </div>
 
         <Link
-          href={`/case-studies#${study.slug}`}
+          href={`/case-studies/${study.slug}`}
           className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors"
         >
           <span>Read Full Case Study</span>

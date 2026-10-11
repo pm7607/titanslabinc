@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { MAIN_SERVICES_MEGA, SPECIALIZED_SERVICES } from "@/data/services";
-import { ShoppingCart, Code2, Palette, Server } from "lucide-react";
+import { ShoppingCart, Code2, Palette, Server, LucideIcon } from "lucide-react";
 
 interface MegaMenuServicesProps {
   onClose?: () => void;
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   ShoppingCart,
   Code2,
   Palette,

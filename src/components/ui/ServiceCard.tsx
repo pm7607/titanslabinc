@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ShoppingCart, Code2, Palette, Server, BrainCircuit, TrendingUp, QrCode, Megaphone, UserCheck } from "lucide-react";
+import { ArrowRight, ShoppingCart, Code2, Palette, Server, BrainCircuit, TrendingUp, QrCode, Megaphone, UserCheck, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ServiceCardProps {
@@ -11,7 +11,7 @@ interface ServiceCardProps {
   className?: string;
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   ShoppingCart,
   Code2,
   Palette,
