@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { X, Send, Sparkles } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ export default function WhatsAppButton() {
     )}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    trackWhatsAppClick("chat_popup_send");
     setIsOpen(false);
   };
 

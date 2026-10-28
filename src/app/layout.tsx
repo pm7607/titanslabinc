@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 export const viewport: Viewport = {
   themeColor: "#7c3aed",
@@ -142,6 +143,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white text-slate-900 min-h-screen flex flex-col antialiased selection:bg-purple-700 selection:text-white">
+        <GoogleAnalytics />
         <CustomCursor />
         <TopBar />
         <Header />

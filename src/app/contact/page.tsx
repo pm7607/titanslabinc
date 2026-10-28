@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { COMPANY_INFO } from "@/data/company";
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import { trackLeadSubmission } from "@/lib/analytics";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -42,6 +43,7 @@ export default function ContactPage() {
       }
 
       setSubmitted(true);
+      trackLeadSubmission(formData.service);
       setFormData({
         name: "",
         company: "",
