@@ -82,7 +82,10 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  }
+  },
+  verification: {
+    google: "google410cdc2af7cbc7f6",
+  },
 };
 
 const jsonLd = {
