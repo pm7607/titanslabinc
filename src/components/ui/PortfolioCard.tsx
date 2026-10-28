@@ -43,9 +43,10 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={`Visit ${cleanDomain}`}
-                className="p-1 rounded hover:bg-slate-200 transition-colors"
+                aria-label={`Visit live website ${cleanDomain}`}
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-slate-200 transition-colors"
               >
-                <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-purple-600 transition-colors" />
+                <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-700 transition-colors" />
               </a>
             )}
           </div>
@@ -58,6 +59,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
               src={project.image}
               alt={`${project.title} live website showcase`}
               fill
+              loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
@@ -141,10 +143,11 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors group/link"
+              aria-label={`Visit live website ${project.title}`}
+              className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-purple-700 hover:text-purple-800 transition-colors group/link py-1"
             >
               <span className="flex items-center gap-1.5">
-                <Globe className="w-3.5 h-3.5 text-purple-600" />
+                <Globe className="w-3.5 h-3.5 text-purple-700" />
                 <span>{project.url.replace("https://", "")}</span>
               </span>
               <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />

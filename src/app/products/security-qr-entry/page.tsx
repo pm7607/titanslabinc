@@ -147,9 +147,11 @@ export default function SecurityQrEntryPage() {
 
               <div className="space-y-4 text-xs">
                 <div className="space-y-1.5">
-                  <label className="text-slate-300 font-semibold block">Visitor Name</label>
+                  <label htmlFor="visitor-name-input" className="text-slate-300 font-semibold block">Visitor Name</label>
                   <input
+                    id="visitor-name-input"
                     type="text"
+                    aria-label="Visitor Name"
                     value={visitorName}
                     onChange={(e) => setVisitorName(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white font-medium focus:outline-none focus:border-purple-500 transition-colors"

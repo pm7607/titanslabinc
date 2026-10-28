@@ -18,6 +18,7 @@ export default function BlogCard({ post }: BlogCardProps) {
               src={post.image}
               alt={post.title}
               fill
+              loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
             />
@@ -32,14 +33,14 @@ export default function BlogCard({ post }: BlogCardProps) {
             {post.category}
           </span>
           <span className="flex items-center gap-1 text-[10px] text-white/90 font-medium bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs">
-            <Clock className="w-3 h-3 text-purple-400" />
+            <Clock className="w-3 h-3 text-purple-300" />
             {post.readTime}
           </span>
         </div>
 
         <div className="z-10 relative">
           <span className="text-[11px] text-white/90 font-mono flex items-center gap-1 font-semibold bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs w-fit">
-            <Calendar className="w-3 h-3 text-purple-400" />
+            <Calendar className="w-3 h-3 text-purple-300" />
             {post.date}
           </span>
         </div>
@@ -53,19 +54,21 @@ export default function BlogCard({ post }: BlogCardProps) {
               {post.title}
             </Link>
           </h3>
-          <p className="text-xs text-slate-600 leading-relaxed mb-6 line-clamp-3">
+          <p className="text-xs text-slate-700 leading-relaxed mb-6 line-clamp-3">
             {post.excerpt}
           </p>
         </div>
 
         {/* Footer */}
         <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
-          <span className="text-slate-500">{post.author}</span>
+          <span className="text-slate-600">{post.author}</span>
           <Link
             href={`/blog/${post.slug}`}
-            className="text-purple-600 hover:text-purple-700 flex items-center gap-1 transition-colors"
+            aria-label={`Read article: ${post.title}`}
+            className="text-purple-700 hover:text-purple-800 flex items-center gap-1 transition-colors py-1"
           >
             <span>Read Article</span>
+            <span className="sr-only">: {post.title}</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

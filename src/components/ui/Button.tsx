@@ -23,9 +23,9 @@ export default function Button({
   const baseStyles = "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
   const variants = {
-    primary: "bg-purple-600 hover:bg-purple-700 text-white shadow-md shadow-purple-600/20 hover:shadow-lg hover:shadow-purple-600/30 border border-purple-500/30",
+    primary: "bg-purple-700 hover:bg-purple-800 text-white shadow-md shadow-purple-900/20 hover:shadow-lg hover:shadow-purple-900/30 border border-purple-600/40",
     secondary: "bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200/80 shadow-xs",
-    outline: "bg-transparent hover:bg-purple-50 text-purple-700 border border-purple-600/40 hover:border-purple-600",
+    outline: "bg-transparent hover:bg-purple-50 text-purple-700 border border-purple-700/50 hover:border-purple-700",
     ghost: "bg-transparent hover:bg-slate-100 text-slate-700 hover:text-slate-900"
   };
 

@@ -36,6 +36,7 @@ export default function ServiceCard({
   return (
     <Link
       href={href}
+      aria-label={`Explore solutions for ${title}`}
       className={cn(
         "group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 hover:border-purple-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-900/10 glass-panel",
         className
@@ -46,7 +47,7 @@ export default function ServiceCard({
 
       <div>
         {/* Icon */}
-        <div className="w-12 h-12 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 group-hover:bg-purple-600 group-hover:text-white group-hover:scale-110 transition-all duration-300 mb-6">
+        <div className="w-12 h-12 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 group-hover:bg-purple-700 group-hover:text-white group-hover:scale-110 transition-all duration-300 mb-6">
           <Icon className="w-6 h-6" />
         </div>
 
@@ -56,7 +57,7 @@ export default function ServiceCard({
         </h3>
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-6">
           {description}
         </p>
 
@@ -65,7 +66,7 @@ export default function ServiceCard({
           <ul className="space-y-1.5 mb-6 text-xs text-slate-700">
             {items.slice(0, 4).map((item, idx) => (
               <li key={idx} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-700" />
                 <span className="truncate">{item}</span>
               </li>
             ))}
@@ -74,8 +75,9 @@ export default function ServiceCard({
       </div>
 
       {/* Arrow Link */}
-      <div className="flex items-center text-xs font-bold text-purple-600 group-hover:text-purple-700 pt-4 border-t border-slate-100">
+      <div className="flex items-center text-xs font-bold text-purple-700 group-hover:text-purple-800 pt-4 border-t border-slate-100">
         <span>Explore Solutions</span>
+        <span className="sr-only">for {title}</span>
         <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1.5 transition-transform" />
       </div>
     </Link>

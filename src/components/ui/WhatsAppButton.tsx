@@ -75,18 +75,25 @@ export default function WhatsAppButton() {
 
           {/* Message Form Input */}
           <form onSubmit={handleSend} className="p-3 bg-white border-t border-slate-200 space-y-2">
+            <label htmlFor="whatsapp-chat-message" className="sr-only">
+              Type your message for Titanslab Support
+            </label>
             <textarea
+              id="whatsapp-chat-message"
+              name="message"
               rows={2}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message here..."
-              className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#25D366] focus:bg-white resize-none transition-colors"
+              aria-label="Type your message for Titanslab Support"
+              className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-[#25D366] focus:bg-white resize-none transition-colors"
             />
 
             <div className="flex items-center justify-between pt-1">
-              <span className="text-[10px] text-slate-400 font-medium">Direct to +91 97121 17087</span>
+              <span className="text-[10px] text-slate-500 font-medium">Direct to +91 97121 17087</span>
               <button
                 type="submit"
+                aria-label="Send WhatsApp message"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold shadow-md transition-all active:scale-95 cursor-pointer"
               >
                 <span>Send</span>
@@ -100,7 +107,7 @@ export default function WhatsAppButton() {
       {/* Official Floating WhatsApp Icon Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle WhatsApp Chat"
+        aria-label="Chat on WhatsApp with Titanslab Support"
         className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/40 cursor-pointer"
       >
         {/* Pulse Glow Ring */}

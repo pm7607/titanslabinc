@@ -15,12 +15,13 @@ export default function Footer() {
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-block" aria-label="Titanslab Home">
               <div className="relative h-8 w-44">
                 <Image
                   src="/assets/titanslab-logo.webp"
                   alt="Titanslab Inc."
                   fill
+                  sizes="176px"
                   className="object-contain object-left brightness-0 invert"
                 />
               </div>
@@ -36,7 +37,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
+                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
               >
                 <FacebookIcon className="w-4 h-4" />
               </a>
@@ -45,7 +46,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
+                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -54,7 +55,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
+                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-600/20 transition-all"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
@@ -186,17 +187,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Rights */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© 2026 Titanslab Inc. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
+            <Link href="/privacy-policy" className="py-2 hover:text-slate-200 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-slate-300 transition-colors">
+            <Link href="/terms" className="py-2 hover:text-slate-200 transition-colors">
               Terms & Conditions
             </Link>
-            <Link href="/cookie-policy" className="hover:text-slate-300 transition-colors">
+            <Link href="/cookie-policy" className="py-2 hover:text-slate-200 transition-colors">
               Cookie Policy
             </Link>
           </div>

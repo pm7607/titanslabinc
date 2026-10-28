@@ -36,11 +36,19 @@ export default function CTASection() {
 
             {/* Quick Contact Info Pills */}
             <div className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300 font-medium">
-              <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <a
+                href={`mailto:${COMPANY_INFO.email}`}
+                aria-label={`Email us at ${COMPANY_INFO.email}`}
+                className="flex items-center gap-1.5 hover:text-white transition-colors py-1"
+              >
                 <Mail className="w-4 h-4 text-purple-300" />
                 <span>{COMPANY_INFO.email}</span>
               </a>
-              <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <a
+                href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`}
+                aria-label={`Call us at ${COMPANY_INFO.phone}`}
+                className="flex items-center gap-1.5 hover:text-white transition-colors py-1"
+              >
                 <Phone className="w-4 h-4 text-purple-300" />
                 <span>{COMPANY_INFO.phone}</span>
               </a>

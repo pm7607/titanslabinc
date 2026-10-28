@@ -48,6 +48,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
             src={study.heroImage}
             alt={study.title}
             fill
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
             className="object-cover group-hover/img:scale-[1.02] transition-transform duration-500 opacity-95"
           />
@@ -69,7 +70,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
 
         <div className="p-4 rounded-xl bg-purple-50 border border-purple-200 text-xs space-y-1.5">
           <div className="flex items-center gap-1.5 font-bold text-purple-700">
-            <Lightbulb className="w-4 h-4 shrink-0 text-purple-600" />
+            <Lightbulb className="w-4 h-4 shrink-0 text-purple-700" />
             <span>The Solution</span>
           </div>
           <p className="text-slate-700 leading-relaxed font-normal">
@@ -83,10 +84,10 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         <div className="flex items-center gap-4 flex-wrap">
           {study.results.map((res, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
               <div>
                 <span className="text-sm font-black text-slate-900 block leading-none">{res.value}</span>
-                <span className="text-[10px] text-slate-500 font-medium block">{res.label}</span>
+                <span className="text-[10px] text-slate-600 font-medium block">{res.label}</span>
               </div>
             </div>
           ))}
@@ -94,9 +95,11 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
 
         <Link
           href={`/case-studies/${study.slug}`}
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-600 hover:text-purple-700 transition-colors"
+          aria-label={`Read full case study: ${study.title}`}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-800 transition-colors py-1"
         >
           <span>Read Full Case Study</span>
+          <span className="sr-only">: {study.title}</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

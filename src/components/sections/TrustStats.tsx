@@ -18,7 +18,7 @@ export default function TrustStats() {
               <span className="text-sm font-bold text-slate-900 mt-1">
                 {stat.label}
               </span>
-              <span className="text-xs text-slate-600 mt-0.5 font-medium">
+              <span className="text-xs text-slate-700 mt-0.5 font-medium">
                 {stat.sub}
               </span>
             </div>

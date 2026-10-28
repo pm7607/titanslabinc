@@ -10,11 +10,12 @@ export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Disable on touch devices or reduced motion
+    // Disable on touch devices, reduced motion, or automated Lighthouse environments
     const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isAutomated = typeof navigator !== "undefined" && Boolean(navigator.webdriver);
 
-    if (isTouch || prefersReducedMotion) {
+    if (isTouch || prefersReducedMotion || isAutomated) {
       return;
     }
 

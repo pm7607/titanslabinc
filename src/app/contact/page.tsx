@@ -134,8 +134,10 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Full Name *</label>
+                      <label htmlFor="contact-name" className="text-xs text-slate-700 font-semibold block mb-1.5">Full Name *</label>
                       <input
+                        id="contact-name"
+                        name="name"
                         type="text"
                         required
                         disabled={isSubmitting}
@@ -147,8 +149,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Company Name</label>
+                      <label htmlFor="contact-company" className="text-xs text-slate-700 font-semibold block mb-1.5">Company Name</label>
                       <input
+                        id="contact-company"
+                        name="company"
                         type="text"
                         disabled={isSubmitting}
                         placeholder="Company / Organization"
@@ -161,8 +165,10 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Business Email *</label>
+                      <label htmlFor="contact-email" className="text-xs text-slate-700 font-semibold block mb-1.5">Business Email *</label>
                       <input
+                        id="contact-email"
+                        name="email"
                         type="email"
                         required
                         disabled={isSubmitting}
@@ -174,8 +180,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Phone Number *</label>
+                      <label htmlFor="contact-phone" className="text-xs text-slate-700 font-semibold block mb-1.5">Phone Number *</label>
                       <input
+                        id="contact-phone"
+                        name="phone"
                         type="tel"
                         required
                         disabled={isSubmitting}
@@ -189,8 +197,10 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Service / Product Interested In *</label>
+                      <label htmlFor="contact-service" className="text-xs text-slate-700 font-semibold block mb-1.5">Service / Product Interested In *</label>
                       <select
+                        id="contact-service"
+                        name="service"
                         disabled={isSubmitting}
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -209,8 +219,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="text-xs text-slate-700 font-semibold block mb-1.5">Project Budget (Optional)</label>
+                      <label htmlFor="contact-budget" className="text-xs text-slate-700 font-semibold block mb-1.5">Project Budget (Optional)</label>
                       <input
+                        id="contact-budget"
+                        name="budget"
                         type="text"
                         disabled={isSubmitting}
                         placeholder="e.g. $2k - $10k"
@@ -222,8 +234,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-slate-700 font-semibold block mb-1.5">Project Details / Message *</label>
+                    <label htmlFor="contact-message" className="text-xs text-slate-700 font-semibold block mb-1.5">Project Details / Message *</label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       required
                       disabled={isSubmitting}
                       rows={4}

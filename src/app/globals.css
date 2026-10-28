@@ -6,11 +6,11 @@
     --foreground: #0f172a;
     --card-bg: #ffffff;
     --card-border: #e2e8f0;
-    --muted-text: #64748b;
+    --muted-text: #475569;
     --section-bg: #f8fafc;
-    --purple-primary: #7c3aed;
-    --purple-accent: #8b5cf6;
-    --purple-glow: rgba(124, 58, 237, 0.08);
+    --purple-primary: #6d28d9;
+    --purple-accent: #7c3aed;
+    --purple-glow: rgba(109, 40, 217, 0.08);
   }
 
   html {
@@ -29,8 +29,17 @@
   }
 
   ::selection {
-    background-color: #7c3aed;
+    background-color: #6d28d9;
     color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #6d28d9;
+    outline-offset: 2px;
+  }
+
+  button, a, input, textarea, select {
+    touch-action: manipulation;
   }
 }
 

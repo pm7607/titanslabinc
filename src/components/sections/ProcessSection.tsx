@@ -29,14 +29,14 @@ export default function ProcessSection() {
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-700 leading-relaxed font-normal">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-semibold">
+              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600 font-semibold">
                 <span>Phase {item.step}</span>
-                <span className="text-purple-600 font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                <span aria-hidden="true" className="text-purple-700 font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
                   &rarr;
                 </span>
               </div>

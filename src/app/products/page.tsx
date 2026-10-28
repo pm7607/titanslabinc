@@ -203,10 +203,15 @@ export default function ProductsPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+                <label htmlFor="newsletter-email" className="sr-only">
+                  Business email address
+                </label>
                 <input
+                  id="newsletter-email"
                   type="email"
                   required
                   placeholder="Enter your business email..."
+                  aria-label="Enter your business email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-purple-600 focus:bg-white transition-colors"

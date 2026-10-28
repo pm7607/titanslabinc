@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import TopBar from "@/components/layout/TopBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+
+export const viewport: Viewport = {
+  themeColor: "#7c3aed",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Titanslab Inc. | Technology & Digital Solutions Company",
@@ -26,6 +33,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Titanslab Inc." }],
   creator: "Titanslab Inc.",
   metadataBase: new URL("https://titanslab.in"),
+  alternates: {
+    canonical: "https://titanslab.in",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -64,7 +74,58 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   }
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://titanslab.in/#organization",
+      "name": "Titanslab Inc.",
+      "url": "https://titanslab.in",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://titanslab.in/#logo",
+        "url": "https://titanslab.in/assets/titanslab-logo.webp",
+        "caption": "Titanslab Inc."
+      },
+      "image": "https://titanslab.in/assets/titanslab-logo.webp",
+      "description": "Titanslab Inc. is a technology and digital solutions company building high-performance websites, enterprise applications, automation, and cloud infrastructure.",
+      "email": "titanslabinc@gmail.com",
+      "telephone": "+91 97121 17087",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rajkot",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/titanslab",
+        "https://www.instagram.com/titanslab.inc",
+        "https://www.facebook.com/titanslab"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://titanslab.in/#website",
+      "url": "https://titanslab.in",
+      "name": "Titanslab Inc.",
+      "description": "Technology & Digital Solutions Partner",
+      "publisher": {
+        "@id": "https://titanslab.in/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -74,7 +135,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-white text-slate-900 min-h-screen flex flex-col antialiased selection:bg-purple-600 selection:text-white">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="bg-white text-slate-900 min-h-screen flex flex-col antialiased selection:bg-purple-700 selection:text-white">
         <CustomCursor />
         <TopBar />
         <Header />

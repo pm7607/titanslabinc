@@ -23,7 +23,7 @@ export default function NotFound() {
             Looks like you&apos;ve wandered into cyberspace
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-md mx-auto leading-relaxed font-normal">
+          <p className="text-sm sm:text-base text-slate-700 max-w-md mx-auto leading-relaxed font-normal">
             The page you are looking for may have been moved, renamed, or is temporarily unavailable. Let&apos;s get you back on track.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <Link
             href="/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold shadow-md shadow-purple-600/20 transition-all hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-sm font-bold shadow-md shadow-purple-900/20 transition-all hover:-translate-y-0.5 active:translate-y-0"
           >
             <Home className="w-4 h-4" />
             <span>Back to Homepage</span>
@@ -42,14 +42,14 @@ export default function NotFound() {
             href="/services"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-bold border border-slate-200/80 transition-all hover:-translate-y-0.5 active:translate-y-0"
           >
-            <Compass className="w-4 h-4 text-purple-600" />
+            <Compass className="w-4 h-4 text-purple-700" />
             <span>Explore Services</span>
           </Link>
         </div>
 
         {/* Helpful Shortcut Cards */}
         <div className="pt-6 border-t border-slate-200">
-          <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider block mb-4">
+          <span className="text-xs text-slate-600 font-semibold uppercase tracking-wider block mb-4">
             Or Jump Directly To:
           </span>
 

@@ -49,8 +49,8 @@ export default function TestimonialsSection() {
                     {t.avatar}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">{t.name}</h4>
-                    <p className="text-xs text-slate-500 font-normal">{t.role} • <span className="text-purple-700 font-semibold">{t.company}</span></p>
+                    <h3 className="text-sm font-bold text-slate-900">{t.name}</h3>
+                    <p className="text-xs text-slate-600 font-normal">{t.role} • <span className="text-purple-700 font-semibold">{t.company}</span></p>
                   </div>
                 </div>
 

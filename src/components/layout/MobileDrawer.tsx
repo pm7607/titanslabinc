@@ -154,18 +154,18 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           <Link
             href="/contact"
             onClick={onClose}
-            className="w-full block text-center py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold shadow-md shadow-purple-600/20 transition-all"
+            className="w-full block text-center py-3 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-semibold shadow-md shadow-purple-900/20 transition-all"
           >
             Let&apos;s Talk
           </Link>
 
-          <div className="text-xs text-slate-500 space-y-1.5 text-center">
+          <div className="text-xs text-slate-600 space-y-1.5 text-center">
             <p className="flex items-center justify-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-purple-600" />
+              <Mail className="w-3.5 h-3.5 text-purple-700" />
               <span>{COMPANY_INFO.email}</span>
             </p>
             <p className="flex items-center justify-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-purple-600" />
+              <Phone className="w-3.5 h-3.5 text-purple-700" />
               <span>{COMPANY_INFO.phone}</span>
             </p>
           </div>

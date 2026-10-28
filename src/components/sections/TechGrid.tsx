@@ -22,9 +22,10 @@ export default function TechGrid() {
             <button
               key={idx}
               onClick={() => setActiveCategory(idx)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 border ${
+              aria-label={`View ${cat.category} technologies`}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 border cursor-pointer ${
                 activeCategory === idx
-                  ? "bg-purple-600 border-purple-600 text-white shadow-md shadow-purple-600/20"
+                  ? "bg-purple-700 border-purple-700 text-white shadow-md shadow-purple-900/20"
                   : "bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-300"
               }`}
             >
@@ -41,14 +42,14 @@ export default function TechGrid() {
               className="group p-5 rounded-xl bg-white border border-slate-200 hover:border-purple-400 hover:bg-purple-50/50 transition-all duration-200 shadow-xs"
             >
               <div className="flex items-center justify-between mb-2">
-                <h4 className="text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
+                <h3 className="text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
                   {tech.name}
-                </h4>
+                </h3>
                 <span className="text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200">
                   {tech.tag}
                 </span>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed font-normal">
+              <p className="text-xs text-slate-700 leading-relaxed font-normal">
                 {tech.description}
               </p>
             </div>

@@ -56,6 +56,7 @@ export default function Header() {
                 alt="Titanslab Inc."
                 fill
                 priority
+                sizes="(max-width: 640px) 144px, 176px"
                 className="object-contain object-left"
               />
             </div>
@@ -162,7 +163,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/contact"
-              className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-purple-600 hover:bg-purple-700 shadow-md shadow-purple-600/20 transition-all duration-200 overflow-hidden"
+              className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-purple-700 hover:bg-purple-800 shadow-md shadow-purple-900/20 transition-all duration-200 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Let&apos;s Talk
@@ -174,7 +175,7 @@ export default function Header() {
           {/* Mobile Hamburger Menu Button */}
           <button
             onClick={() => setMobileDrawerOpen(true)}
-            className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-purple-600 focus:outline-none"
+            className="lg:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-purple-700 focus:outline-none"
             aria-label="Open Menu"
           >
             <Menu className="w-6 h-6" />

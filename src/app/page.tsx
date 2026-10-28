@@ -60,15 +60,15 @@ export default function HomePage() {
 
                 <div className="space-y-3 pt-2 text-sm text-slate-700 font-medium">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-purple-700 shrink-0 mt-0.5" />
                     <span>Custom engineering focused on measurable commercial outcomes rather than generic templates.</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-purple-700 shrink-0 mt-0.5" />
                     <span>Multi-country experience delivering scalable web systems and specialized software.</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-purple-700 shrink-0 mt-0.5" />
                     <span>Dedicated ongoing maintenance, server monitoring, and transparent project milestones.</span>
                   </div>
                 </div>
@@ -88,19 +88,19 @@ export default function HomePage() {
                       src="/assets/Titans_poster-scaled.jpg"
                       alt="Titanslab Digital Engineering Showcase"
                       fill
-                      priority
+                      loading="lazy"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
                     <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 z-10">
-                      <span className="text-[10px] font-bold uppercase font-mono px-2.5 py-1 rounded bg-purple-600/90 text-white backdrop-blur-md">
+                      <span className="text-[10px] font-bold uppercase font-mono px-2.5 py-1 rounded bg-purple-700 text-white backdrop-blur-md">
                         TITANSLAB INC.
                       </span>
-                      <h3 className="text-xl font-bold text-white pt-1">
+                      <p className="text-xl font-bold text-white pt-1">
                         Empowering Digital Growth & Innovation
-                      </h3>
+                      </p>
                       <p className="text-xs text-slate-200 font-normal">
                         Full-Stack Development • Cloud Infrastructure • Automation
                       </p>
@@ -145,7 +145,7 @@ export default function HomePage() {
           <AnimatedSection delay={0.2}>
             <div className="p-8 rounded-2xl bg-white border border-slate-200 glass-panel shadow-sm">
               <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-purple-600" />
+                <span className="w-2 h-2 rounded-full bg-purple-700" />
                 Specialized Industry & Technology Solutions
               </h3>
 
@@ -154,13 +154,15 @@ export default function HomePage() {
                   <div key={spec.slug} className="p-5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-purple-300 transition-colors flex flex-col justify-between">
                     <div>
                       <h4 className="text-base font-bold text-slate-900 mb-2">{spec.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed mb-4 font-normal">{spec.description}</p>
+                      <p className="text-xs text-slate-700 leading-relaxed mb-4 font-normal">{spec.description}</p>
                     </div>
                     <Link
                       href={`/services#${spec.slug}`}
-                      className="text-xs font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1"
+                      aria-label={`Learn more about ${spec.title}`}
+                      className="text-xs font-bold text-purple-700 hover:text-purple-800 flex items-center gap-1"
                     >
                       <span>Learn More</span>
+                      <span className="sr-only">about {spec.title}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
@@ -185,11 +187,11 @@ export default function HomePage() {
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-extrabold uppercase mb-1">
                     ★ Flagship Product
                   </div>
-                  <h3 className="text-xl font-bold text-white">Security QR Entry System</h3>
+                  <h2 className="text-xl font-bold text-white">Security QR Entry System</h2>
                   <p className="text-xs text-purple-200 font-normal">Smart Visitor Access, Rapid Scanning & Real-Time Verification Platform</p>
                 </div>
               </div>
-              <Button href="/products" size="md" className="bg-white text-purple-900 hover:bg-slate-100 border-none shrink-0">
+              <Button href="/products" size="md" aria-label="Explore Security QR Entry System details" className="bg-white text-purple-900 hover:bg-slate-100 border-none shrink-0">
                 Explore Product Details &rarr;
               </Button>
             </div>
@@ -221,7 +223,7 @@ export default function HomePage() {
                       <Icon className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.description}</p>
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">{item.description}</p>
                   </div>
                 );
               })}
