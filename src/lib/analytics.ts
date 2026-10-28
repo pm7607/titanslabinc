@@ -45,3 +45,4 @@ export function trackLeadSubmission(service?: string) {
 export function trackWhatsAppClick(location: string = "floating_button") {
   trackEvent("whatsapp_click", "Engagement", location);
 }
+
