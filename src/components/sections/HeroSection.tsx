@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Code2, Server, Cpu, ShieldCheck } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Hero3DCore from "@/components/3d/Hero3DCore";
 
 export default function HeroSection() {
   return (
@@ -60,73 +61,14 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Hero Abstract Tech Visual */}
+          {/* Right Hero Interactive 3D Core Canvas */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative flex items-center justify-center"
           >
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl p-1 bg-gradient-to-br from-purple-200 via-slate-100 to-purple-100 shadow-xl shadow-slate-900/5">
-              <div className="rounded-[22px] bg-white p-6 sm:p-8 space-y-6 relative overflow-hidden border border-slate-200">
-                {/* Floating Glass Graphic Nodes */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                  </div>
-                  <span className="text-[11px] font-mono text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200 font-bold">
-                    titanslab.in/core
-                  </span>
-                </div>
-
-                {/* Simulated Tech Stack Card */}
-                <div className="space-y-4 font-mono text-xs">
-                  <div className="p-3.5 rounded-xl bg-purple-50 border border-purple-200 text-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Code2 className="w-5 h-5 text-purple-600" />
-                      <div>
-                        <div className="font-bold text-slate-900">Custom Web Architecture</div>
-                        <div className="text-[10px] text-slate-600 font-sans font-medium">Next.js • React • TypeScript</div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded">ACTIVE</span>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Cpu className="w-5 h-5 text-purple-600" />
-                      <div>
-                        <div className="font-bold text-slate-900">Business Process Automation</div>
-                        <div className="text-[10px] text-slate-600 font-sans font-medium">ERP • Workflow • API Pipelines</div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded">RUNNING</span>
-                  </div>
-
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Server className="w-5 h-5 text-purple-600" />
-                      <div>
-                        <div className="font-bold text-slate-900">Cloud Infrastructure & Security</div>
-                        <div className="text-[10px] text-slate-600 font-sans font-medium">High Availability • SSL • Hosting</div>
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded">OPTIMIZED</span>
-                  </div>
-                </div>
-
-                {/* Status Indicator */}
-                <div className="pt-2 flex items-center justify-between text-xs text-slate-600 font-medium">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-purple-600" />
-                    <span>Production Grade Security</span>
-                  </div>
-                  <span className="text-purple-700 font-bold">99.9% Uptime</span>
-                </div>
-              </div>
-            </div>
+            <Hero3DCore />
           </motion.div>
 
         </div>

@@ -8,15 +8,16 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
-import PortfolioCard from "@/components/ui/PortfolioCard";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
+import Card3DTilt from "@/components/ui/Card3DTilt";
+import SecurityQR3DScanner from "@/components/3d/SecurityQR3DScanner";
+import HorizontalProjectsShowcase from "@/components/sections/HorizontalProjectsShowcase";
 
 import { MAIN_SERVICES_MEGA, SPECIALIZED_SERVICES } from "@/data/services";
 import { WHY_US_REASONS } from "@/data/company";
-import { PORTFOLIO_ITEMS } from "@/data/portfolio";
 
-import { Target, Cpu, Layers, ShieldCheck, MessageSquareText, Award, ArrowRight, CheckCircle2, QrCode, LucideIcon } from "lucide-react";
+import { Target, Cpu, Layers, ShieldCheck, MessageSquareText, Award, ArrowRight, CheckCircle2, LucideIcon } from "lucide-react";
 
 const whyUsIconMap: Record<string, LucideIcon> = {
   Target,
@@ -28,8 +29,6 @@ const whyUsIconMap: Record<string, LucideIcon> = {
 };
 
 export default function HomePage() {
-  const featuredProjects = PORTFOLIO_ITEMS.filter(p => p.featured).slice(0, 4);
-
   return (
     <div className="space-y-0 bg-white">
       {/* 1. Hero Section */}
@@ -125,18 +124,19 @@ export default function HomePage() {
             />
           </AnimatedSection>
 
-          {/* 4 Main Pillar Cards */}
+          {/* 4 Main Pillar Cards with 3D Gyroscopic Perspective */}
           <AnimatedSection delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {MAIN_SERVICES_MEGA.map((cat) => (
-                <ServiceCard
-                  key={cat.id}
-                  title={cat.title}
-                  description={cat.shortDesc}
-                  iconName={cat.iconName}
-                  href={`/services/${cat.slug}`}
-                  items={cat.items.slice(0, 4).map(i => i.title)}
-                />
+                <Card3DTilt key={cat.id} maxTilt={9} perspective={1100}>
+                  <ServiceCard
+                    title={cat.title}
+                    description={cat.shortDesc}
+                    iconName={cat.iconName}
+                    href={`/services/${cat.slug}`}
+                    items={cat.items.slice(0, 4).map(i => i.title)}
+                  />
+                </Card3DTilt>
               ))}
             </div>
           </AnimatedSection>
@@ -174,30 +174,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Flagship Product Teaser Banner */}
-      <section className="py-12 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="p-8 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-900 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-white text-purple-900 flex items-center justify-center font-bold shrink-0 shadow-md">
-                  <QrCode className="w-7 h-7" />
-                </div>
-                <div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-extrabold uppercase mb-1">
-                    ★ Flagship Product
-                  </div>
-                  <h2 className="text-xl font-bold text-white">Security QR Entry System</h2>
-                  <p className="text-xs text-purple-200 font-normal">Smart Visitor Access, Rapid Scanning & Real-Time Verification Platform</p>
-                </div>
-              </div>
-              <Button href="/products" size="md" aria-label="Explore Security QR Entry System details" className="bg-white text-purple-900 hover:bg-slate-100 border-none shrink-0">
-                Explore Product Details &rarr;
-              </Button>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* 3D Flagship Product Showcase */}
+      <SecurityQR3DScanner />
 
       {/* 5. Why Titanslab */}
       <section className="py-20 bg-white relative">
@@ -215,16 +193,17 @@ export default function HomePage() {
               {WHY_US_REASONS.map((item, idx) => {
                 const Icon = whyUsIconMap[item.iconName] || Target;
                 return (
-                  <div
-                    key={idx}
-                    className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 mb-6">
-                      <Icon className="w-6 h-6" />
+                  <Card3DTilt key={idx} maxTilt={7} perspective={1000}>
+                    <div className="h-full p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel flex flex-col justify-between">
+                      <div>
+                        <div className="w-12 h-12 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 mb-6">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">{item.description}</p>
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">{item.description}</p>
-                  </div>
+                  </Card3DTilt>
                 );
               })}
             </div>
@@ -241,36 +220,8 @@ export default function HomePage() {
       {/* 8. Testimonials Section */}
       <TestimonialsSection />
 
-      {/* 9. Portfolio Preview */}
-      <section className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
-                  Featured Work
-                </div>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                  Work We&apos;re Proud Of
-                </h2>
-              </div>
-
-              <Button href="/portfolio" variant="secondary" showArrow>
-                View All Projects
-              </Button>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProjects.map((project) => (
-                <PortfolioCard key={project.id} project={project} />
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* 9. Pinned Horizontal Scroll Portfolio Showcase */}
+      <HorizontalProjectsShowcase />
 
       {/* 10. CTA Section */}
       <CTASection />
