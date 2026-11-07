@@ -1,5 +1,7 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceCard from "@/components/ui/ServiceCard";
+import Card3DTilt from "@/components/ui/Card3DTilt";
+import HorizontalServiceProcess from "@/components/sections/HorizontalServiceProcess";
 import CTASection from "@/components/sections/CTASection";
 import { MAIN_SERVICES_MEGA, SPECIALIZED_SERVICES } from "@/data/services";
 import { CheckCircle2 } from "lucide-react";
@@ -35,16 +37,22 @@ export default function ServicesHubPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {MAIN_SERVICES_MEGA.map((cat) => (
-            <ServiceCard
-              key={cat.id}
-              title={cat.title}
-              description={cat.shortDesc}
-              iconName={cat.iconName}
-              href={`/services/${cat.slug}`}
-              items={cat.items.slice(0, 4).map(i => i.title)}
-            />
+            <Card3DTilt key={cat.id} maxTilt={8} perspective={1000}>
+              <ServiceCard
+                title={cat.title}
+                description={cat.shortDesc}
+                iconName={cat.iconName}
+                href={`/services/${cat.slug}`}
+                items={cat.items.slice(0, 4).map(i => i.title)}
+              />
+            </Card3DTilt>
           ))}
         </div>
+      </section>
+
+      {/* Horizontal Engineering Delivery Pipeline */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <HorizontalServiceProcess />
       </section>
 
       {/* Specialized Solutions Detailed Sections */}

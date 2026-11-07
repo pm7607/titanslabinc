@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, AlertCircle, Lightbulb } from "lucide-react";
 import { CaseStudy } from "@/data/caseStudies";
+import Card3DTilt from "@/components/ui/Card3DTilt";
 
 interface CaseStudyCardProps {
   study: CaseStudy;
@@ -9,10 +10,11 @@ interface CaseStudyCardProps {
 
 export default function CaseStudyCard({ study }: CaseStudyCardProps) {
   return (
-    <div
-      id={study.slug}
-      className="group rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel"
-    >
+    <Card3DTilt maxTilt={7} perspective={1000} className="h-full">
+      <div
+        id={study.slug}
+        className="group rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 hover:border-purple-400 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-purple-900/10 glass-panel h-full flex flex-col justify-between"
+      >
       {/* Top Meta Bar */}
       <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-200 text-xs">
         <div className="flex items-center gap-2">
@@ -103,6 +105,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
-    </div>
+      </div>
+    </Card3DTilt>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
+import Card3DTilt from "@/components/ui/Card3DTilt";
 import {
   QrCode,
   CheckCircle2,
@@ -218,33 +219,35 @@ export default function SecurityQrEntryPage() {
 
             {/* Right: Live Interactive Pass & Gate Terminal Feedback */}
             <div className="lg:col-span-6 flex flex-col items-center justify-center space-y-6">
-              {/* Virtual Digital Pass Card */}
-              <div className="w-full max-w-sm rounded-2xl bg-white text-slate-900 p-6 shadow-2xl border border-slate-200 relative overflow-hidden space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <div>
-                    <span className="text-[10px] font-black uppercase text-purple-700 tracking-widest block font-mono">
-                      TITANSLAB VERIFIED PASS
+              {/* Virtual Digital Pass Card with 3D Tilt */}
+              <Card3DTilt maxTilt={12} perspective={900} className="w-full max-w-sm">
+                <div className="w-full rounded-2xl bg-white text-slate-900 p-6 shadow-2xl border border-slate-200 relative overflow-hidden space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div>
+                      <span className="text-[10px] font-black uppercase text-purple-700 tracking-widest block font-mono">
+                        TITANSLAB VERIFIED PASS
+                      </span>
+                      <h4 className="text-sm font-extrabold text-slate-900">{visitorName || "Delegate"}</h4>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-purple-100 text-purple-800 border border-purple-200">
+                      {ticketTier}
                     </span>
-                    <h4 className="text-sm font-extrabold text-slate-900">{visitorName || "Delegate"}</h4>
                   </div>
-                  <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-purple-100 text-purple-800 border border-purple-200">
-                    {ticketTier}
-                  </span>
-                </div>
 
-                {/* Simulated QR Code Canvas Visual */}
-                <div className="relative aspect-square w-48 mx-auto bg-slate-900 p-3 rounded-2xl flex items-center justify-center border-4 border-slate-800 shadow-inner group">
-                  <div className="w-full h-full bg-white rounded-xl p-2.5 flex items-center justify-center relative overflow-hidden">
-                    <QrCode className="w-full h-full text-slate-950" />
-                    {/* Simulated Sweeping Laser Scan Line */}
-                    <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_8px_#22d3ee] animate-pulse" />
+                  {/* Simulated QR Code Canvas Visual with Laser Beam */}
+                  <div className="relative aspect-square w-48 mx-auto bg-slate-900 p-3 rounded-2xl flex items-center justify-center border-4 border-slate-800 shadow-inner group overflow-hidden">
+                    <div className="w-full h-full bg-white rounded-xl p-2.5 flex items-center justify-center relative overflow-hidden">
+                      <QrCode className="w-full h-full text-slate-950" />
+                      {/* Sweeping Laser Scan Line */}
+                      <div className="absolute left-0 right-0 top-0 h-1.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_12px_#22d3ee] animate-bounce" />
+                    </div>
+                  </div>
+
+                  <div className="text-center font-mono text-[10px] text-slate-500 pt-1 border-t border-slate-100">
+                    REF: {tokenId} • 3D GYROSCOPIC SENSORS ACTIVE
                   </div>
                 </div>
-
-                <div className="text-center font-mono text-[10px] text-slate-500 pt-1 border-t border-slate-100">
-                  REF: {tokenId} • SCANNER READY
-                </div>
-              </div>
+              </Card3DTilt>
 
               {/* Dynamic Scanner Outcome Display */}
               <div className="w-full max-w-sm">

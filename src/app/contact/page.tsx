@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import Card3DTilt from "@/components/ui/Card3DTilt";
 import { COMPANY_INFO } from "@/data/company";
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
@@ -270,69 +271,71 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Right Column: Information & Map Visual */}
+            {/* Right Column: Information & Map Visual with 3D Tilt */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="p-8 rounded-3xl bg-white border border-slate-200 glass-panel space-y-6 shadow-sm">
-                <h3 className="text-xl font-bold text-slate-900">Direct Contact</h3>
+              <Card3DTilt maxTilt={6} perspective={1000}>
+                <div className="p-8 rounded-3xl bg-white border border-slate-200 glass-panel space-y-6 shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900">Direct Contact</h3>
 
-                <div className="space-y-4 text-sm">
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-700 transition-all">
-                    <Mail className="w-5 h-5 text-purple-600 shrink-0" />
-                    <div>
-                      <span className="text-[10px] text-slate-500 block uppercase font-bold">Email Support</span>
-                      <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.email}</span>
-                    </div>
-                  </a>
+                  <div className="space-y-4 text-sm">
+                    <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-700 transition-all">
+                      <Mail className="w-5 h-5 text-purple-600 shrink-0" />
+                      <div>
+                        <span className="text-[10px] text-slate-500 block uppercase font-bold">Email Support</span>
+                        <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.email}</span>
+                      </div>
+                    </a>
 
-                  <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-700 transition-all">
-                    <Phone className="w-5 h-5 text-purple-600 shrink-0" />
-                    <div>
-                      <span className="text-[10px] text-slate-500 block uppercase font-bold">Phone Line</span>
-                      <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.phone}</span>
-                    </div>
-                  </a>
+                    <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, "")}`} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-700 transition-all">
+                      <Phone className="w-5 h-5 text-purple-600 shrink-0" />
+                      <div>
+                        <span className="text-[10px] text-slate-500 block uppercase font-bold">Phone Line</span>
+                        <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.phone}</span>
+                      </div>
+                    </a>
 
-                  <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700">
-                    <MapPin className="w-5 h-5 text-purple-600 shrink-0" />
-                    <div>
-                      <span className="text-[10px] text-slate-500 block uppercase font-bold">Headquarters</span>
-                      <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.location}</span>
+                    <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700">
+                      <MapPin className="w-5 h-5 text-purple-600 shrink-0" />
+                      <div>
+                        <span className="text-[10px] text-slate-500 block uppercase font-bold">Headquarters</span>
+                        <span className="font-semibold text-xs text-slate-900">{COMPANY_INFO.location}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Social Channels */}
-                <div className="pt-4 border-t border-slate-200">
-                  <span className="text-xs text-slate-600 font-semibold block mb-3">Connect On Social Media:</span>
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={COMPANY_INFO.socials.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
-                    >
-                      <FacebookIcon className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={COMPANY_INFO.socials.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
-                    >
-                      <InstagramIcon className="w-4 h-4" />
-                    </a>
-                    <a
-                      href={COMPANY_INFO.socials.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
-                    >
-                      <LinkedinIcon className="w-4 h-4" />
-                    </a>
+                  {/* Social Channels */}
+                  <div className="pt-4 border-t border-slate-200">
+                    <span className="text-xs text-slate-600 font-semibold block mb-3">Connect On Social Media:</span>
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={COMPANY_INFO.socials.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
+                      >
+                        <FacebookIcon className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={COMPANY_INFO.socials.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
+                      >
+                        <InstagramIcon className="w-4 h-4" />
+                      </a>
+                      <a
+                        href={COMPANY_INFO.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 hover:border-purple-400 hover:text-purple-600 transition-colors text-slate-700"
+                      >
+                        <LinkedinIcon className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                </div>
+              </Card3DTilt>
             </div>
 
           </div>

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import Card3DTilt from "@/components/ui/Card3DTilt";
+import GlobalNetwork3D from "@/components/3d/GlobalNetwork3D";
 import { TEAM_MEMBERS } from "@/data/company";
 import { MessageCircle, Mail } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
@@ -34,73 +36,109 @@ export default function OurTeamPage() {
         <AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {TEAM_MEMBERS.map((member, idx) => (
-              <div
-                key={idx}
-                className="group relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between"
-              >
-                {/* Team Photo Container */}
-                <div className="relative h-72 w-full bg-slate-100 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-
-                {/* Team Member Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-1">
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs font-semibold text-purple-700">{member.role}</p>
-
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-100">
-                      {member.bio}
-                    </p>
+              <Card3DTilt key={idx} maxTilt={7} perspective={1000} className="h-full">
+                <div
+                  className="group relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between h-full"
+                >
+                  {/* Team Photo Container */}
+                  <div className="relative h-72 w-full bg-slate-100 overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
 
-                  {/* Social & Contact Action Buttons */}
-                  <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
-                    <a
-                      href={member.whatsapp}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition-colors"
-                    >
-                      <MessageCircle className="w-4 h-4 fill-emerald-600 text-white" />
-                      <span>WhatsApp</span>
-                    </a>
+                  {/* Team Member Details */}
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs font-semibold text-purple-700">{member.role}</p>
 
-                    {/* Email Icon Button before Instagram Icon */}
-                    <a
-                      href={`mailto:${member.email}`}
-                      title={`Email ${member.name} (${member.email})`}
-                      aria-label={`Email ${member.name}`}
-                      className="p-2 rounded-xl bg-slate-100 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                    </a>
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal pt-2 border-t border-slate-100">
+                        {member.bio}
+                      </p>
+                    </div>
 
-                    {/* Instagram Icon Button */}
-                    <a
-                      href={member.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={`${member.name} Instagram`}
-                      aria-label={`${member.name} Instagram`}
-                      className="p-2 rounded-xl bg-slate-100 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors"
-                    >
-                      <InstagramIcon className="w-4 h-4" />
-                    </a>
+                    {/* Social & Contact Action Buttons */}
+                    <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
+                      <a
+                        href={member.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-bold transition-colors"
+                      >
+                        <MessageCircle className="w-4 h-4 fill-emerald-600 text-white" />
+                        <span>WhatsApp</span>
+                      </a>
+
+                      {/* Email Icon Button before Instagram Icon */}
+                      <a
+                        href={`mailto:${member.email}`}
+                        title={`Email ${member.name} (${member.email})`}
+                        aria-label={`Email ${member.name}`}
+                        className="p-2 rounded-xl bg-slate-100 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors"
+                      >
+                        <Mail className="w-4 h-4" />
+                      </a>
+
+                      {/* Instagram Icon Button */}
+                      <a
+                        href={member.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`${member.name} Instagram`}
+                        aria-label={`${member.name} Instagram`}
+                        className="p-2 rounded-xl bg-slate-100 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-600 transition-colors"
+                      >
+                        <InstagramIcon className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                </div>
+              </Card3DTilt>
             ))}
+          </div>
+        </AnimatedSection>
+      </section>
+
+      {/* 3D Interactive Global Delivery Network Canvas */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div className="p-8 sm:p-12 rounded-3xl bg-slate-950 text-white border border-slate-800 shadow-2xl relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-6 space-y-4 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-bold uppercase tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                  Distributed Presence
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+                  Engineering in India, <br />
+                  <span className="bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
+                    Delivering Worldwide.
+                  </span>
+                </h2>
+                <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                  Headquartered in Rajkot, Gujarat, Titanslab builds and maintains commercial digital platforms for enterprises and retail businesses across Canada, USA, Europe, and Asia.
+                </p>
+                <div className="pt-2 flex flex-wrap gap-2 justify-center lg:justify-start text-xs font-mono">
+                  <span className="px-3 py-1 rounded-lg bg-slate-900 border border-purple-500/30 text-purple-300">📍 Rajkot (HQ)</span>
+                  <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300">🇨🇦 Canada</span>
+                  <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300">🇻🇳 Vietnam</span>
+                  <span className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300">🇺🇸 United States</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 flex items-center justify-center">
+                <GlobalNetwork3D />
+              </div>
+            </div>
           </div>
         </AnimatedSection>
       </section>

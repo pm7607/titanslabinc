@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ExternalLink, Globe, Lock } from "lucide-react";
 import { PortfolioItem } from "@/data/portfolio";
+import Card3DTilt from "@/components/ui/Card3DTilt";
 
 interface PortfolioCardProps {
   project: PortfolioItem;
@@ -12,10 +13,11 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
     : `${project.client.toLowerCase().replace(/\s+/g, "")}.com`;
 
   return (
-    <div
-      data-cursor="view"
-      className="group relative rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-900/10 flex flex-col justify-between shadow-xs"
-    >
+    <Card3DTilt maxTilt={8} perspective={1000} className="h-full">
+      <div
+        data-cursor="view"
+        className="group relative rounded-2xl bg-white border border-slate-200 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/10 flex flex-col justify-between shadow-xs h-full"
+      >
       {/* Option A: Clean Minimalist Browser Frame Mockup */}
       <div className="relative w-full bg-slate-900 border-b border-slate-200 overflow-hidden flex flex-col">
         {/* Minimalist Browser Top Window Bar */}
@@ -155,6 +157,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </Card3DTilt>
   );
 }

@@ -6,6 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
+import Card3DTilt from "@/components/ui/Card3DTilt";
 import { PRODUCTS_LIST } from "@/data/products";
 import { Sparkles, Bell, CheckCircle2, QrCode, Cpu, Layers, Lock, LucideIcon } from "lucide-react";
 
@@ -100,25 +101,27 @@ export default function ProductsPage() {
                   </div>
                 </div>
 
-                {/* Graphic Visual Representation of QR Entry */}
+                {/* Graphic Visual Representation of QR Entry with 3D Tilt */}
                 <div className="lg:col-span-5">
-                  <Link
-                    href="/products/security-qr-entry"
-                    className="block p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-center space-y-4 hover:border-purple-400 hover:bg-white/15 transition-all group"
-                  >
-                    <div className="w-20 h-20 rounded-2xl bg-white text-purple-900 mx-auto flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
-                      <QrCode className="w-12 h-12" />
-                    </div>
-                    <div className="space-y-1">
-                      <div className="text-sm font-bold text-white group-hover:text-purple-200 transition-colors">Instant QR Access Verification</div>
-                      <div className="text-xs text-purple-200">Duplicate Prevention • Real-Time Logs</div>
-                    </div>
-                    <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/30 text-[11px] text-slate-300 text-left font-mono">
-                      <div>▶ SCANNER: GATE_01_ACTIVE</div>
-                      <div>▶ STATUS: ACCESS_GRANTED</div>
-                      <div>▶ LATENCY: 42ms (Click to Test Live)</div>
-                    </div>
-                  </Link>
+                  <Card3DTilt maxTilt={10} perspective={900}>
+                    <Link
+                      href="/products/security-qr-entry"
+                      className="block p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 text-center space-y-4 hover:border-purple-400 hover:bg-white/15 transition-all group"
+                    >
+                      <div className="w-20 h-20 rounded-2xl bg-white text-purple-900 mx-auto flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+                        <QrCode className="w-12 h-12" />
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-sm font-bold text-white group-hover:text-purple-200 transition-colors">Instant QR Access Verification</div>
+                        <div className="text-xs text-purple-200">Duplicate Prevention • Real-Time Logs</div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-purple-950/60 border border-purple-500/30 text-[11px] text-slate-300 text-left font-mono">
+                        <div>▶ SCANNER: GATE_01_ACTIVE</div>
+                        <div>▶ STATUS: ACCESS_GRANTED</div>
+                        <div>▶ LATENCY: 42ms (Click to Test Live)</div>
+                      </div>
+                    </Link>
+                  </Card3DTilt>
                 </div>
 
               </div>
@@ -140,44 +143,45 @@ export default function ProductsPage() {
             {upcomingProducts.map((prod) => {
               const Icon = iconMap[prod.iconName] || Cpu;
               return (
-                <div
-                  key={prod.id}
-                  className="group relative p-8 rounded-2xl bg-white border border-slate-200 glass-panel space-y-4 overflow-hidden shadow-xs hover:shadow-xl hover:border-purple-300 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 font-bold">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] uppercase font-bold font-mono text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded border border-purple-200">
-                        {prod.badge}
-                      </span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-slate-900">{prod.title}</h3>
-                      <p className="text-xs text-purple-700 font-semibold mt-0.5">{prod.tagline}</p>
-                    </div>
-
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                      {prod.description}
-                    </p>
-
-                    <div className="space-y-1.5 pt-2">
-                      {prod.highlights.map((hl, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
-                          <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
-                          <span>{hl}</span>
+                <Card3DTilt key={prod.id} maxTilt={8} perspective={1000} className="h-full">
+                  <div
+                    className="group relative p-8 rounded-2xl bg-white border border-slate-200 glass-panel space-y-4 overflow-hidden shadow-xs hover:shadow-xl hover:border-purple-300 transition-all flex flex-col justify-between h-full"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="w-10 h-10 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 font-bold">
+                          <Icon className="w-5 h-5" />
                         </div>
-                      ))}
+                        <span className="text-[10px] uppercase font-bold font-mono text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded border border-purple-200">
+                          {prod.badge}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900">{prod.title}</h3>
+                        <p className="text-xs text-purple-700 font-semibold mt-0.5">{prod.tagline}</p>
+                      </div>
+
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                        {prod.description}
+                      </p>
+
+                      <div className="space-y-1.5 pt-2">
+                        {prod.highlights.map((hl, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
+                            <span>{hl}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-500 font-medium">
+                      <Lock className="w-3.5 h-3.5 text-purple-600" />
+                      <span>Development Phase: {prod.status}</span>
                     </div>
                   </div>
-
-                  <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-500 font-medium">
-                    <Lock className="w-3.5 h-3.5 text-purple-600" />
-                    <span>Development Phase: {prod.status}</span>
-                  </div>
-                </div>
+                </Card3DTilt>
               );
             })}
           </div>

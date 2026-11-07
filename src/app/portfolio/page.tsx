@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PortfolioCard from "@/components/ui/PortfolioCard";
+import PortfolioHorizontalReel from "@/components/sections/PortfolioHorizontalReel";
 import CTASection from "@/components/sections/CTASection";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { PORTFOLIO_ITEMS } from "@/data/portfolio";
@@ -42,6 +43,13 @@ export default function OurWorkPage() {
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
+        </AnimatedSection>
+      </section>
+
+      {/* Horizontal Featured Reel */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <PortfolioHorizontalReel />
         </AnimatedSection>
       </section>
 
