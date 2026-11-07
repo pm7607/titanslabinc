@@ -14,6 +14,19 @@ export interface PortfolioItem {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
+    id: "samarthfoods",
+    title: "Samarth Foods",
+    category: "Websites",
+    client: "Samarth Foods",
+    url: "https://samarthfoods.com",
+    shortDesc: "Agro-processing and premium spice enterprise specializing in whole spices, ground blends, and oil seeds.",
+    longDesc: "Corporate digital presence and product showcase engineered for Samarth Foods to highlight agricultural sourcing, wholesale spice processing, and quality assurance.",
+    technologies: ["Next.js", "React", "TypeScript", "Responsive UI"],
+    image: "/images/samarthfoods.png",
+    featured: true,
+    metrics: "Spices & Agro Export"
+  },
+  {
     id: "fycusseeds",
     title: "Fycus Seeds",
     category: "Websites",
