@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Button from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Card3DTilt from "@/components/ui/Card3DTilt";
+import TurnstileWidget from "@/components/ui/TurnstileWidget";
 import { COMPANY_INFO } from "@/data/company";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, ShieldCheck } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 import { trackLeadSubmission } from "@/lib/analytics";
+
+const TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAGHPY-LtoXU-wgZX";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,14 +23,44 @@ export default function ContactPage() {
     budget: "",
     message: ""
   });
+  const [website, setWebsite] = useState(""); // Invisible honeypot trap
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileError, setTurnstileError] = useState<string | null>(null);
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const formLoadedAtRef = useRef<number>(0);
+
+  useEffect(() => {
+    formLoadedAtRef.current = Date.now();
+  }, []);
+
+  const handleTurnstileVerify = useCallback((token: string) => {
+    setTurnstileToken(token);
+    setTurnstileError(null);
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null);
+    setTurnstileError("Security check expired. Please verify again.");
+  }, []);
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken(null);
+    setTurnstileError("Could not load Cloudflare security check. Please refresh the page.");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage(null);
+
+    if (!turnstileToken) {
+      setErrorMessage("Please complete the Cloudflare security check before sending your inquiry.");
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/contact", {
@@ -34,7 +68,12 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+          website,
+          formLoadedAt: formLoadedAtRef.current,
+        }),
       });
 
       const result = await response.json();
@@ -54,12 +93,17 @@ export default function ContactPage() {
         budget: "",
         message: ""
       });
+      setWebsite("");
+      setTurnstileToken(null);
+      setTurnstileResetKey((prev) => prev + 1);
     } catch (err: unknown) {
       setErrorMessage(
         err instanceof Error
           ? err.message
           : "An unexpected error occurred while sending your message. Please try again."
       );
+      setTurnstileToken(null);
+      setTurnstileResetKey((prev) => prev + 1);
     } finally {
       setIsSubmitting(false);
     }
@@ -109,7 +153,10 @@ export default function ContactPage() {
                   <div className="pt-2">
                     <button
                       type="button"
-                      onClick={() => setSubmitted(false)}
+                      onClick={() => {
+                        setSubmitted(false);
+                        formLoadedAtRef.current = Date.now();
+                      }}
                       className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition-all shadow-md shadow-purple-600/20 active:scale-95 cursor-pointer"
                     >
                       Send Another Inquiry
@@ -118,6 +165,19 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Invisible Honeypot Trap for Anti-Spam */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="contact-website">Website</label>
+                    <input
+                      id="contact-website"
+                      name="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                    />
+                  </div>
                   {errorMessage && (
                     <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2.5">
                       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-rose-600" />
@@ -251,11 +311,42 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {/* Cloudflare Turnstile Anti-Spam Security Check */}
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-semibold text-slate-700 flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-purple-600" />
+                        <span>Security Verification</span>
+                      </span>
+                      {turnstileToken ? (
+                        <span className="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Verified
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-slate-500">Protected by Cloudflare</span>
+                      )}
+                    </div>
+
+                    <TurnstileWidget
+                      siteKey={TURNSTILE_SITE_KEY}
+                      onVerify={handleTurnstileVerify}
+                      onExpire={handleTurnstileExpire}
+                      onError={handleTurnstileError}
+                      resetKey={turnstileResetKey}
+                      theme="light"
+                    />
+
+                    {turnstileError && (
+                      <p className="text-[11px] text-rose-600 font-medium">{turnstileError}</p>
+                    )}
+                  </div>
+
                   <Button
                     type="submit"
                     size="lg"
                     showArrow={!isSubmitting}
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !turnstileToken}
                     className="w-full"
                   >
                     {isSubmitting ? (
@@ -263,6 +354,8 @@ export default function ContactPage() {
                         <Loader2 className="w-4 h-4 animate-spin" />
                         <span>Sending Inquiry...</span>
                       </span>
+                    ) : !turnstileToken ? (
+                      "Complete Security Check to Send"
                     ) : (
                       "Send Inquiry"
                     )}
