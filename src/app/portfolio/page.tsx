@@ -25,13 +25,13 @@ export default function OurWorkPage() {
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-widest mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
-            Client Work & Showcase
+            Portfolio
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
-            Our Work & Delivered <span className="text-gradient-purple">Client Projects.</span>
+            Delivered <span className="text-gradient-purple">Client Work.</span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Explore our work portfolio featuring live web applications, e-commerce storefronts, business platforms, and custom software delivered for clients globally.
+          <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+            Live websites, e-commerce stores, and custom web platforms shipped worldwide.
           </p>
 
           <div className="mt-5 flex items-center justify-center">

@@ -40,16 +40,16 @@ export default function HorizontalProjectsShowcase() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-bold uppercase tracking-widest mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
-                Interactive Showcase • Horizontal Scroll
+                Featured Work
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
-                <span>Work Engineered For Impact</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                Built for Real Impact
               </h2>
             </div>
 
             <div className="flex items-center gap-4">
               <span className="text-xs font-mono text-slate-400 hidden sm:inline-block">
-                Scroll down to glide horizontally &rarr;
+                Scroll to explore &rarr;
               </span>
               <Button href="/portfolio" variant="secondary" size="sm" className="bg-white/10 hover:bg-white/20 text-white border-white/20">
                 All Projects
@@ -144,10 +144,10 @@ export default function HorizontalProjectsShowcase() {
                   <Sparkles className="w-6 h-6 animate-pulse" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">
-                  Have a Project in Mind?
+                  Ready to Build?
                 </h3>
                 <p className="text-xs sm:text-sm text-purple-200 leading-relaxed">
-                  We build custom web platforms, e-commerce stores, ERPs, and automated workflows customized to your exact requirements.
+                  Custom web apps, e-commerce, and cloud systems tailored to your business.
                 </p>
               </div>
 
@@ -156,7 +156,7 @@ export default function HorizontalProjectsShowcase() {
                   href="/portfolio"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-slate-950 text-sm font-bold hover:bg-slate-100 transition-all shadow-lg"
                 >
-                  <span>Browse Full Portfolio</span>
+                  <span>All Projects</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
@@ -164,20 +164,12 @@ export default function HorizontalProjectsShowcase() {
                   href="/contact"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-purple-600/40 hover:bg-purple-600/60 border border-purple-400/40 text-white text-sm font-bold transition-all"
                 >
-                  <span>Start Your Project</span>
+                  <span>Start a Project</span>
                 </Link>
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Footer Hint */}
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-20 shrink-0 text-center sm:text-left">
-          <p className="text-[11px] font-mono text-slate-400">
-            ✦ Smooth 60 FPS GPU-accelerated horizontal track • Titanslab Design System
-          </p>
-        </div>
-
       </div>
     </section>
   );

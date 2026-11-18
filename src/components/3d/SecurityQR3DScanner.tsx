@@ -21,47 +21,47 @@ export default function SecurityQR3DScanner() {
           <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/15 border border-purple-400/30 text-purple-300 text-xs font-bold uppercase tracking-widest">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-              Flagship SaaS Product • 3D Holographic System
+              Flagship Product
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Security QR Entry <br />
+              Security QR Entry. <br />
               <span className="bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
-                Next-Gen Access Verification.
+                Instant Access Control.
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal max-w-xl mx-auto lg:mx-0">
-              Transform campus, corporate office, and facility security with encrypted dynamic QR passes, real-time cloud logging, and instant automated guard verification.
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal max-w-lg mx-auto lg:mx-0">
+              Encrypted QR passes, anti-fraud duplicate detection, and live gate logs for events and campuses.
             </p>
 
             {/* Feature highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left text-xs sm:text-sm text-slate-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-left text-xs sm:text-sm text-slate-300">
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
                 <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Sub-100ms Optical Scan</span>
+                <span>&lt;100ms Optical Scan</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
                 <Lock className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>End-to-End Cryptography</span>
+                <span>AES-256 Encrypted</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Zero Physical Hardware</span>
+                <span>Zero Extra Hardware</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
                 <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
-                <span>Live Admin Telemetry</span>
+                <span>Live Gate Telemetry</span>
               </div>
             </div>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Button
                 href="/products/security-qr-entry"
                 size="lg"
                 className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-xl shadow-purple-900/30 border-none"
               >
-                <span>Live Product Showcase</span>
+                <span>Try Live Demo</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
 
@@ -71,7 +71,7 @@ export default function SecurityQR3DScanner() {
                 size="lg"
                 className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/20"
               >
-                Request Custom Deployment
+                Request Deployment
               </Button>
             </div>
           </div>

@@ -119,10 +119,10 @@ export default function ContactPage() {
             Let&apos;s Talk
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
-            Start Your Digital Project With <span className="text-gradient-purple">Titanslab Inc.</span>
+            Start Your Project With <span className="text-gradient-purple">Titanslab.</span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Tell us about your technical requirements, upcoming project, product inquiry, or automation goals. Our team will review your inquiry and respond promptly.
+          <p className="mt-4 text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+            Share your goals or requirements and our team will reply promptly.
           </p>
         </AnimatedSection>
       </section>

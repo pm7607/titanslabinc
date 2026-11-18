@@ -119,31 +119,31 @@ export const MAIN_SERVICES_MEGA: ServiceCategory[] = [
 
 export const SPECIALIZED_SERVICES = [
   {
-    title: "AI/ML Solutions",
+    title: "AI & Machine Learning",
     slug: "ai-ml-solutions",
     iconName: "BrainCircuit",
-    description: "Innovative AI and ML solutions tailored to transform business operations. From predictive analytics and intelligent automation to data-driven decision-making, we design systems that improve performance and unlock new opportunities.",
-    highlights: ["Machine Learning Solutions", "Predictive Analytics", "AI Automation", "Data Analysis", "Recommendation Systems", "AI-powered Business Applications", "Custom AI Models"]
+    description: "Predictive analytics, custom AI workflows, and intelligent automation built into your business tools.",
+    highlights: ["Predictive Analytics", "AI Workflow Automation", "Custom AI Models", "Smart Dashboards"]
   },
   {
-    title: "Algorithmic Trading Solutions",
+    title: "Algorithmic Trading",
     slug: "algo-trading",
     iconName: "TrendingUp",
-    description: "Algorithmic trading technology focused on automation, low-latency data processing, strategy backtesting, and systematic execution across financial markets.",
-    highlights: ["Trading Algorithms", "Automated Trading Systems", "Market Data Processing", "Trading Dashboards", "Strategy Automation", "Broker API Integration"]
+    description: "Low-latency market data pipelines, automated strategy execution, and real-time broker integrations.",
+    highlights: ["Automated Strategies", "Live Market Feeds", "Broker API Integration", "Trading Dashboards"]
   },
   {
-    title: "Digital Marketing",
+    title: "Digital Marketing & SEO",
     slug: "digital-marketing",
     iconName: "Megaphone",
-    description: "Data-backed digital marketing strategies that increase online visibility, drive targeted traffic, and maximize conversion rates for growing brands.",
-    highlights: ["Search Engine Optimization (SEO)", "Social Media Marketing", "Content Marketing", "Paid Advertising (PPC)", "Website Analytics", "Conversion Optimization"]
+    description: "Technical SEO, targeted campaigns, and conversion optimization designed to generate qualified leads.",
+    highlights: ["Technical SEO", "Paid Search (PPC)", "Conversion Tracking", "Analytics & Reporting"]
   },
   {
-    title: "CRM Cloud Software",
+    title: "Cloud CRM Software",
     slug: "crm-cloud-software",
     iconName: "UserCheck",
-    description: "Cloud-based CRM solutions that centralize customer information, streamline sales pipelines, and automate daily customer communication workflows.",
-    highlights: ["Customer Management", "Lead Tracking", "Sales Pipeline Automation", "Customer Support Desk", "Workflow Automation", "Custom Reports & Dashboards"]
+    description: "Centralized lead tracking, automated follow-ups, and custom sales pipeline dashboards.",
+    highlights: ["Lead Management", "Pipeline Automation", "Support Ticketing", "Custom Reporting"]
   }
 ];

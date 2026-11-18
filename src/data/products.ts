@@ -16,18 +16,16 @@ export const PRODUCTS_LIST: Product[] = [
     id: "security-qr-entry",
     slug: "security-qr-entry",
     title: "Security QR Entry System",
-    tagline: "Smart Visitor & Event Access Verification Platform",
+    tagline: "Instant Visitor & Event Access Control",
     badge: "Flagship Product",
     status: "Live",
     isFlagship: true,
-    description: "An advanced, high-speed QR-based access control and visitor verification platform. Designed for seamless event registration, workplace access management, duplicate entry prevention, instant ID validation, and real-time attendance analytics.",
+    description: "High-speed QR access control with instant verification, duplicate fraud blocking, and real-time attendance dashboards.",
     highlights: [
-      "Instant QR Code Generation & Scanning",
-      "Real-time Access & Visitor Verification",
-      "Duplicate Entry & Ticket Fraud Prevention",
-      "Executive Live Dashboard & Attendance Logs",
-      "Multi-Gate & Multi-Scanner Synchronization",
-      "Automated Visitor Badges & WhatsApp Alerts"
+      "Sub-100ms QR Scanning",
+      "Duplicate Fraud Prevention",
+      "Multi-Gate Live Sync",
+      "Automated Visitor Passes"
     ],
     iconName: "QrCode"
   },

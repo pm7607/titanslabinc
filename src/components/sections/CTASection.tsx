@@ -14,15 +14,15 @@ export default function CTASection() {
           <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-purple-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-purple-300" />
-              <span>Start Your Digital Transformation</span>
+              <span>Ready to Start?</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Have an Idea? <span className="text-purple-300">Let&apos;s Build It.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto font-normal">
-              Tell us what you&apos;re building, what you&apos;re trying to improve, or where your business needs help. We&apos;ll help you find the right digital solution.
+            <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-lg mx-auto font-normal">
+              Tell us what you&apos;re building and we&apos;ll scope a fast, scalable solution.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

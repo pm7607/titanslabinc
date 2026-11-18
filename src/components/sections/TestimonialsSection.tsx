@@ -11,9 +11,8 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedSection>
           <SectionHeading
-            badge="Client Feedback"
-            title="Trusted by Forward-Thinking Businesses"
-            subtitle="Discover how our engineering solutions, custom web portals, and automation systems drive measurable outcomes for clients globally."
+            badge="Client Stories"
+            title="Trusted by Growing Teams"
           />
         </AnimatedSection>
 

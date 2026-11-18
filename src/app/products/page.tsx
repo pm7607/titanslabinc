@@ -39,15 +39,15 @@ export default function ProductsPage() {
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold uppercase tracking-wider mb-6 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600 animate-pulse" />
-            <span>Titanslab Software Products</span>
+            <span>Products</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
-            Proprietary Products Built for <span className="text-gradient-purple">Business Control.</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl mx-auto">
+            Software Built for <span className="text-gradient-purple">Business Control.</span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-            Discover Titanslab&apos;s in-house software products designed to simplify visitor verification, workflow automation, and enterprise resource planning.
+          <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+            In-house platforms for QR access control, workflow automation, and cloud ERP.
           </p>
         </AnimatedSection>
       </section>
